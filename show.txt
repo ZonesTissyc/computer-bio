@@ -1,0 +1,11 @@
+0SA:
+    C10 -> C5N
+    C11 -> CME
+    O10 -> O5N
+WYB:
+    C7-> C2N
+    C8 -> CME
+    O7 -> O2N
+OME:
+    O1 -> O
+    CM -> CH3
