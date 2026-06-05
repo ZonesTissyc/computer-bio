@@ -10,4 +10,4 @@ size_z = 25
 exhaustiveness = 30
 num_modes = 5
 seed = 6
-cpu = 3
+cpu = 16

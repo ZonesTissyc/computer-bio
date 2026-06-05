@@ -1,2 +1,2 @@
 #!/bin/bash
-/home/ztc/computerbio/autodock/vina --config conf.txt
+/home/ztc/gitDir/computer-bio/autodock/vina --config conf.txt
