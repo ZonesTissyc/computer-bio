@@ -1,0 +1,32 @@
+source leaprc.GLYCAM_06j-1
+source oldff/leaprc.ff99SB
+
+loadamberparams frcmod.ions234lm_126_tip3p
+
+mol = loadpdb ./crystal_human_E-selectin_sLex.pdb
+
+# protein #
+# di-sulfide bond #
+#以下以bond关键字开头的语句代表整个大分子之间的连接部分
+#这里标绿的部分是atom name为SG（硫原子）的residue ID，这里代表二硫键
+bond mol.19.SG mol.117.SG
+bond mol.90.SG mol.109.SG
+#以下代表着配体四糖的糖苷键信息，为糖连接原子的residue ID。
+bond mol.122.C2 mol.123.O3			# Neu5Ac - Core-2 Gal
+bond mol.123.C1 mol.124.O4			# Core-2 Gal - GlcNAc
+bond mol.126.C1 mol.124.O3			# Fuc - GlcNAc
+bond mol.124.C1 mol.125.O			# GlcNAc - OME
+
+charge mol
+addIons mol Na+ 0
+addIons mol Cl- 0
+#输出文件也应更改为对应体系的文件名。
+saveamberparm mol complex_human_E-selectin_sLex.prmtop complex_human_E-selectin_sLex.rst7
+savepdb mol complex_human_E-selectin_sLex.pdb
+
+solvateOct mol TIP3PBOX 8.0
+
+saveamberparm mol OCT_complex_human_E-selectin_sLex_WAT.prmtop OCT_complex_human_E-selectin_sLex_WAT.rst7
+savepdb mol OCT_complex_human_E-selectin_sLex_WAT.pdb
+
+quit
